@@ -2,15 +2,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_BASE } from "../../config.js";
 
-
 export const fetchMessages = createAsyncThunk(
   "messages/fetchByWaId",
   async (wa_id) => {
-    const res = await axios.get(`${API_BASE}/messages/${wa_id}`);
+    const res = await axios.get(`${API_BASE}/api/messages/${wa_id}`);
     return { wa_id, messages: res.data || [] };
   }
 );
-
 
 export const sendMessage = createAsyncThunk(
   "messages/send",
@@ -28,7 +26,7 @@ export const sendMessage = createAsyncThunk(
 const messagesSlice = createSlice({
   name: "messages",
   initialState: {
-    byChat: {},   
+    byChat: {},
     status: "idle",
     error: null,
   },

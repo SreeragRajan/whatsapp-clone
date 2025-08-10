@@ -6,7 +6,7 @@ import { API_BASE } from "../../config.js";
 export const fetchConversations = createAsyncThunk(
   "conversations/fetchAll",
   async () => {
-    const res = await axios.get(`${API_BASE}/conversations`);
+    const res = await axios.get(`${API_BASE}/api/conversations`);
    
     return res.data || [];
   }
